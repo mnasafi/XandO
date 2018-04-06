@@ -26,6 +26,10 @@ int main()
     int column;
     bool playing = true; //Continue playing by default
 
+
+    char winner = ' ';
+   
+    
     do
     {
         cout<<turn<<"'s turn.\n";
