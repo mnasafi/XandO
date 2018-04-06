@@ -16,20 +16,19 @@ int main()
     //3x3 matrix of characters, initially with blank spaces in each position
     //Intializing the board 2-D matrix
     char board[ROWS][COLUMNS] = { 
-                                  {BLANK, BLANK, BLANK},
-                                  {BLANK, BLANK, BLANK},
-                                  {BLANK, BLANK, BLANK} 
-                                };
+        {BLANK, BLANK, BLANK},
+        {BLANK, BLANK, BLANK},
+        {BLANK, BLANK, BLANK} 
+    };
 
     char turn = X; //Player X always goes first
     int row;
     int column;
     bool playing = true; //Continue playing by default
 
-
     char winner = ' ';
-   
-    
+
+
     do
     {
         cout<<turn<<"'s turn.\n";
@@ -94,7 +93,7 @@ int main()
         {
             for ( int c = 0; c < 3; c++)
             { 
-                cout << board[r][c] << " "; 
+                cout << board[r][c] << " ";
 
             } // end for loop
 
@@ -102,9 +101,91 @@ int main()
 
         } // end for loop
 
+        // horizontal checking
+        if (board[0][0] == board[0][1] && board[0][0] == board[0][2]
+                && board[0][0] != ' ')
+        {
+            winner = board[0][0];
+
+            playing = false;
+
+        } // end if
+
+        else if (board[1][0] == board[1][1] && board[1][0] == board[1][2]
+                && board[1][0] != ' ')
+        {
+            winner = board[1][0];
+
+            playing = false;
+
+        } // end else if
+
+        else if (board[2][0] == board[2][1] && board[2][0] == board[2][2]
+                && board[2][0] != ' ')
+        {
+            winner = board[2][0];
+
+            playing = false;
+
+        } // end
+
+
+        // vertical checking
+        else if(board[0][0] == board[1][0] && board[0][0] == board[2][0]
+                && board[0][0] != ' ')
+        {
+            winner = board[0][0];
+
+            playing = false;
+
+        } 
+
+
+        else if(board[0][1] == board[1][1] && board[0][1] == board[2][1]
+                && board[0][1] != ' ')
+        {
+            winner = board[0][1];
+
+            playing = false;
+
+        } 
+
+        else if(board[0][2] == board[1][2] && board[0][2] == board[2][2]
+                && board[0][2] != ' ')
+        {
+            winner = board[0][2];
+
+            playing = false;
+
+        } 
+
+
+        // diagonal checking
+        else if(board[0][0] == board[1][1] && board[0][0] == board[2][2]
+                && board[0][0] != ' ')
+        {
+            winner = board[0][0];
+
+            playing = false;
+
+        } 
+
+        else if(board[2][0] == board[1][1] && board[2][0] == board[0][2]
+                && board[2][0] != ' ')
+        {
+            winner = board[2][0];
+
+            playing = false;
+       
+        } // end else
+
+
+
     }while( playing );
 
     cout<<"Goodbye!\n";
+
+    cout << "The winner is: " << winner << endl;
 
     return 0;
 }
