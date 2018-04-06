@@ -176,15 +176,17 @@ int main()
             winner = board[2][0];
 
             playing = false;
-       
+
         } // end else
 
 
 
     }while( playing );
 
-    cout << "The winner is: " << winner << endl;
-
+    if ( winner !=' ') // prevents empty slot as being winner
+    {
+        cout << "The winner is: " << winner << endl;
+    }
     cout<<"Goodbye!\n";
 
     return 0;
