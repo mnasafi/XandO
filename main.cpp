@@ -183,9 +183,9 @@ int main()
 
     }while( playing );
 
-    cout<<"Goodbye!\n";
-
     cout << "The winner is: " << winner << endl;
+
+    cout<<"Goodbye!\n";
 
     return 0;
 }
